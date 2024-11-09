@@ -1,0 +1,12 @@
+.sidebar {
+    background: #fff;
+    height: 100vh;
+    max-width: 256px;
+    width: 100%;
+    padding: 32px 0px 24px 24px;
+    border-right: 1px solid #F1F2F4;
+}
+
+.sidebar_top {
+    margin-bottom: 55px;
+}

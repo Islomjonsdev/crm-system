@@ -17,6 +17,7 @@ const Sidebar = () => {
           <img src={logo} alt="" />
         </Link>
       </div>
+      
       <span>Menu</span>
 
       <ul className="sidebar_list">

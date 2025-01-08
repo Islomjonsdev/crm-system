@@ -3,11 +3,13 @@ import Sidebar from "@/components/Sidebar/Sidebar";
 
 export default function HomeLayout({ children }) {
   return (
-    <div className="flex">
+    <div className="flex gap-[30px] pt-[20px] pr-[40px] pb-[32px] pl-[20px]">
       <Sidebar />
-      <div>
+      <div className="w-[100%]">
         <Header />
+        <div className="pt-[50px]">
         {children}
+        </div>
       </div>
     </div>
   );

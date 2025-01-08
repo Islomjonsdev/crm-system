@@ -1,4 +1,3 @@
-import Login from '@/app/(auth)/login/page'
 import React from 'react'
 
 const Main = () => {

@@ -105,9 +105,7 @@ const Sidebar = () => {
           </button>
         </div>
       </div>
-      {logoutModal && (
-          <Modal close={setLogoutModal}>Logout</Modal>
-      )}
+      {logoutModal && <Modal close={setLogoutModal}>Logout</Modal>}
     </>
   );
 };

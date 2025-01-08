@@ -1,11 +1,25 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useState, useEffect } from "react";
 import loginLogo from "../../../public/icons/loginLogo.svg";
 import enterIcon from "../../../public/icons/enter.svg";
 import IllustrationImage from "../../../public/svg/Illustration.svg";
 
 const Login = () => {
+  const [telNumber, setTelNumber] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const data = {
+      telNumber: telNumber,
+      password: password
+    }
+    console.log(data);
+  }
   return (
     <div className="flex">
       <div className="bg-[#3F8CFF] w-[100%] flex flex-col h-[100vh] flex flex-col items-center justify-center">
@@ -30,14 +44,32 @@ const Login = () => {
 
       <div className="w-[100%] flex flex-col h-[100vh] items-center justify-center bg-[#FFFFFF]">
         <h2>Kirish</h2>
-        <form className="max-w-[403px] w-[100%]">
+        <form className="max-w-[403px] w-[100%]" onSubmit={onSubmit}>
           <div className="flex flex-col mb-[29px]">
-            <label className="text-[#7D8592] font-bold text-[14px] leading-[24px] mb-[6px]" htmlFor="">Telefon raqam</label>
-            <input className="border border-[#D8E0F0] rounded-[14px] pt-[11px] pb-[13px] pl-[18px]" type="tel" />
+            <label
+              className="text-[#7D8592] font-bold text-[14px] leading-[24px] mb-[6px]"
+              htmlFor=""
+            >
+              Telefon raqam
+            </label>
+            <input
+              className="border border-[#D8E0F0] rounded-[14px] pt-[11px] pb-[13px] pl-[18px]"
+              type="tel"
+              onChange={(e) => setTelNumber(e.target.value)}
+            />
           </div>
           <div className="flex flex-col mb-[35px]">
-            <label className="text-[#7D8592] font-bold text-[14px] leading-[24px] mb-[6px]" htmlFor="">Parol</label>
-            <input className="border border-[#D8E0F0] rounded-[14px] pt-[11px] pr-[18px] pb-[13px] pl-[18px]" type="password" />
+            <label
+              className="text-[#7D8592] font-bold text-[14px] leading-[24px] mb-[6px]"
+              htmlFor=""
+            >
+              Parol
+            </label>
+            <input
+              className="border border-[#D8E0F0] rounded-[14px] pt-[11px] pr-[18px] pb-[13px] pl-[18px]"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
           <div className="flex items-center gap-[14px]">
             <input type="checkbox" />

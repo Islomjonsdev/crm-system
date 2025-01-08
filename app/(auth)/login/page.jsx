@@ -5,12 +5,14 @@ import Link from "next/link";
 import { useState } from "react";
 import loginLogo from "../../../public/icons/loginLogo.svg";
 import enterIcon from "../../../public/icons/enter.svg";
+import eyeIcon from "../../../public/icons/eye.svg";
+import { FiEyeOff } from "react-icons/fi";
 import IllustrationImage from "../../../public/svg/Illustration.svg";
 
 const Login = () => {
   const [telNumber, setTelNumber] = useState("");
   const [password, setPassword] = useState("");
-
+  const [isPassVisible, setIsPassVisible] = useState(true);
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -19,6 +21,10 @@ const Login = () => {
       password: password,
     };
     console.log(data);
+  };
+
+  const passHandler = () => {
+    setIsPassVisible(!isPassVisible);
   };
   return (
     <div className="flex">
@@ -43,7 +49,9 @@ const Login = () => {
       </div>
 
       <div className="w-[100%] flex flex-col h-[100vh] items-center justify-center bg-[#FFFFFF]">
-        <h2 className="text-[#0A1629] font-bold text-[22px] leading-[30px] mb-[33px]">Kirish</h2>
+        <h2 className="text-[#0A1629] font-bold text-[22px] leading-[30px] mb-[33px]">
+          Kirish
+        </h2>
         <form className="max-w-[403px] w-[100%]" onSubmit={onSubmit}>
           <div className="flex flex-col mb-[29px]">
             <label
@@ -58,7 +66,7 @@ const Login = () => {
               onChange={(e) => setTelNumber(e.target.value)}
             />
           </div>
-          <div className="flex flex-col mb-[35px]">
+          <div className="flex flex-col mb-[35px] relative">
             <label
               className="text-[#7D8592] font-bold text-[14px] leading-[24px] mb-[6px]"
               htmlFor=""
@@ -66,10 +74,37 @@ const Login = () => {
               Parol
             </label>
             <input
-              className="border border-[#D8E0F0] rounded-[14px] pt-[11px] pr-[18px] pb-[13px] pl-[18px] outline-none"
-              type="password"
+              className="border border-[#D8E0F0] rounded-[14px] pt-[11px] pr-[18px] pb-[13px] pl-[18px] outline-none relative"
+              value={password}
+              type={isPassVisible ? "password" : "text"}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {password.length > 0 ? (
+              isPassVisible ? (
+                <Image
+                  className="absolute top-[43px] right-[18px] cursor-pointer"
+                  onClick={passHandler}
+                  src={eyeIcon}
+                  width={24}
+                  height={24}
+                  alt="eyeIcon"
+                />
+              ) : (
+                <FiEyeOff
+                  className="absolute top-[46px] right-[18px] cursor-pointer"
+                  onClick={passHandler}
+                  width={24}
+                  height={24}
+                />
+              )
+            ) : (
+              <FiEyeOff
+                className="absolute top-[46px] right-[18px] cursor-pointer"
+                onClick={passHandler}
+                width={24}
+                height={24}
+              />
+            )}
           </div>
           <div className="flex items-center gap-[14px] mb-[48px]">
             <input type="checkbox" />

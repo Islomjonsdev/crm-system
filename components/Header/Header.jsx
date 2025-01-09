@@ -1,9 +1,66 @@
-import React from 'react'
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import searchIcon from "../../public/icons/search.svg";
+import notificationsIcon from "../../public/icons/notifications.svg";
+import profileImage from "../../public/images/profileImage.png";
+import rightIcon from "../../public/icons/right.svg";
+import { IoIosArrowUp } from "react-icons/io";
 
 const Header = () => {
+  const [click, setClick] = useState(false);
+  const handleClick = () => {
+    setClick((prev) => !prev);
+  };
   return (
-    <div className='bg-[#fff]'>Header</div>
-  )
-}
+    <header className="flex items-center justify-between">
+      <div className="max-w-[412px] w-[100%] relative">
+        <input
+          className="w-[100%] pt-[12px] pr-[19px] pb-[12px] pl-[54px] rounded-[14px] outline-none relative"
+          type="search"
+          placeholder="Search"
+        />
+        <Image
+          className="absolute top-[12px] left-[19px]"
+          src={searchIcon}
+          alt="searchIcon"
+          width={24}
+          height={24}
+        />
+      </div>
 
-export default Header
+      <div className="flex items-center gap-[24px]">
+        <Link
+          href={"/"}
+          className="bg-[#fff] w-[48px] h-[48px] flex items-center justify-center rounded-[14px]"
+        >
+          <Image
+            src={notificationsIcon}
+            alt="notificationsIcon"
+            width={24}
+            height={24}
+          />
+        </Link>
+
+        <div
+          className="bg-[#FFFFFF] flex items-center gap-[10px] cursor-pointer pt-[9px] pr-[11px] pb-[9px] pl-[14px] rounded-[14px]"
+          onClick={handleClick}
+        >
+          <Image src={profileImage} alt="profileImage" width={30} height={30} />
+          <p className="text-[#0A1629] font-bold text-[16px] leading-[24px]">
+            Evan Yates
+          </p>
+          {click === false ? (
+            <IoIosArrowUp />
+          ) : (
+            <Image src={rightIcon} alt="rightIcon" width={24} height={24} />
+          )}
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;

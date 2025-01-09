@@ -8,6 +8,7 @@ import notificationsIcon from "../../public/icons/notifications.svg";
 import profileImage from "../../public/images/profileImage.png";
 import rightIcon from "../../public/icons/right.svg";
 import { IoIosArrowUp } from "react-icons/io";
+import { Input } from "../ui/input";
 
 const Header = () => {
   const [click, setClick] = useState(false);
@@ -17,8 +18,7 @@ const Header = () => {
   return (
     <header className="flex items-center justify-between">
       <div className="max-w-[412px] w-[100%] relative">
-        <input
-          className="w-[100%] pt-[12px] pr-[19px] pb-[12px] pl-[54px] rounded-[14px] outline-none relative"
+        <Input
           type="search"
           placeholder="Search"
         />
@@ -54,7 +54,7 @@ const Header = () => {
           </p>
           {click === false ? (
             <Image src={rightIcon} alt="rightIcon" width={24} height={24} />
-            ) : (
+          ) : (
             <IoIosArrowUp />
           )}
         </div>

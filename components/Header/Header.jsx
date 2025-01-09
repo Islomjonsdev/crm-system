@@ -53,9 +53,9 @@ const Header = () => {
             Evan Yates
           </p>
           {click === false ? (
-            <IoIosArrowUp />
-          ) : (
             <Image src={rightIcon} alt="rightIcon" width={24} height={24} />
+            ) : (
+            <IoIosArrowUp />
           )}
         </div>
       </div>

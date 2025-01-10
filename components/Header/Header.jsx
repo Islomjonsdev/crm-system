@@ -18,10 +18,7 @@ const Header = () => {
   return (
     <header className="flex items-center justify-between">
       <div className="max-w-[412px] w-[100%] relative">
-        <Input
-          type="search"
-          placeholder="Search"
-        />
+        <Input type="search" placeholder="Search" />
         <Image
           className="absolute top-[12px] left-[19px]"
           src={searchIcon}

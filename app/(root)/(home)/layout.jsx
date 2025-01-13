@@ -7,9 +7,7 @@ export default function HomeLayout({ children }) {
       <Sidebar />
       <div className="w-full ms-[230px]">
         <Header />
-        <div className="pt-[50px]">
-        {children}
-        </div>
+        <div className="pt-[50px]">{children}</div>
       </div>
     </div>
   );

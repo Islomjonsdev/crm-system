@@ -19,7 +19,7 @@ const Sidebar = () => {
   console.log(logoutModal);
   return (
     <>
-      <div className="bg-[#fff] h-[100vh] max-w-[200px] w-[100%] rounded-[24px] pl-[24px] pr-[16px] fixed top-[0]">
+      <div className="bg-[#fff] h-[100vh] max-w-[200px] w-[100%] rounded-[24px] pl-[24px] pr-[16px]  fixed top-[20px]">
         <div className="mt-[40px] mb-[42px]">
           <Link href={"/"}>
             <Image src={logo} width={50} height={50} alt="logo" />

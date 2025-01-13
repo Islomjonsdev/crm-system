@@ -1,8 +1,11 @@
+import { Button } from '@/components/ui/button'
 import React from 'react'
 
 const Employees = () => {
   return (
-    <div>Employees</div>
+    <div>
+      <Button>Add user</Button>
+    </div>
   )
 }
 

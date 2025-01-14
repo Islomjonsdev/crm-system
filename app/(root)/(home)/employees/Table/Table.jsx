@@ -23,7 +23,7 @@ const Table = ({ data, setData }) => {
     } catch (err) {
       console.log(err);
       setSuccessMessage(err.massege);
-      toast.error("Failed to delete")
+      toast.error("Failed to delete");
     }
   };
   return (

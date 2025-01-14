@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import { instance } from '@/api'
-import { useState, useEffect } from 'react'
+import { instance } from "@/api";
+import { useState, useEffect } from "react";
 
 const Messenger = () => {
-  const [ product, setProduct ] = useState([])
+  const [product, setProduct] = useState([]);
   console.log(product, "datasdatasdatas");
 
   const fetchData = async () => {
     try {
-      const res = await instance.get("/work")
+      const res = await instance.get("/work");
       console.log(res?.data);
-      setProduct(res?.data)
-    }catch (err) {
+      setProduct(res?.data);
+    } catch (err) {
       console.log(err);
     }
-  }
- 
+  };
+
   useEffect(() => {
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
   return (
     <div>
       <div>
@@ -28,7 +28,7 @@ const Messenger = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Messenger
+export default Messenger;

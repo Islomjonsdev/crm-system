@@ -12,7 +12,7 @@ import employeesIcon from "../../public/icons/employees.svg";
 import messengerIcon from "../../public/icons/messenger.svg";
 import infoportalIcon from "../../public/icons/infoportal.svg";
 import logOutIcon from "../../public/icons/logout.svg";
-import Modal from "../Modal/Modal";
+import Modal from "../../components/ui/Modal/Modal";
 
 const Sidebar = () => {
   const [logoutModal, setLogoutModal] = useState(false);

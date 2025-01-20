@@ -5,7 +5,6 @@ import Button from "@/components/ui/button";
 import Table from "./Table/Table";
 import { instance } from "@/api";
 import Modal from "@/components/ui/Modal/Modal";
-import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "react-toastify";
 

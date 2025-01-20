@@ -7,9 +7,16 @@ import Image from "next/image";
 import "./Table.scss";
 import { instance } from "@/api";
 import { toast } from "react-toastify";
+import Modal from "@/components/ui/Modal/Modal";
+import { Input } from "@/components/ui/input";
+import Button from "@/components/ui/button";
 
-const Table = ({ data, setData }) => {
+const Table = ({ data, setData, params }) => {
+  const [editModal, setEditModal] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
+  const [editUsers, seteditUsers] = useState({});
+  console.log(editUsers);
+
   const handleDelete = async (id) => {
     try {
       const deleteIndex = await instance.delete(`/work/${id}`);
@@ -26,6 +33,42 @@ const Table = ({ data, setData }) => {
       toast.error("Failed to delete");
     }
   };
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+
+    instance
+      .put(`/work/${editModal}`, editUsers, {
+        headers: { "Content-Type": "application/json" },
+      })
+      .then(() => {
+        setData((prevEditData) =>
+          prevEditData?.map((item) =>
+            item?.id === editModal ? { ...item, ...editUsers } : item
+          )
+        );
+        setEditModal(false);
+        toast.success("Successfully updated")
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Failed to update")
+      });
+  };
+
+  const handlEditId = (item) => {
+    setEditModal(item?.id);
+    seteditUsers(item);
+  };
+
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    seteditUsers((prevEditUser) => ({
+      ...prevEditUser,
+      [name]: value,
+    }));
+  };
+
   return (
     <>
       {successMessage && <p>{successMessage}</p>}
@@ -60,7 +103,7 @@ const Table = ({ data, setData }) => {
                 <td>{item?.price}</td>
                 <td>
                   <button className="bg-[green] p-[10px] rounded-[50%] text-[#fff]">
-                    <MdModeEditOutline />
+                    <MdModeEditOutline onClick={() => handlEditId(item)} />
                   </button>
                 </td>
                 <td>
@@ -76,6 +119,55 @@ const Table = ({ data, setData }) => {
           </tbody>
         </table>
       </div>
+
+      {editModal && (
+        <Modal close={setEditModal}>
+          <div className="bg-[#fff] rounded-[10px] p-[20px]">
+            <h1 className="mb-5 text-center font-bold text-[30px]">
+              Edit user
+            </h1>
+            <form className="flex flex-col" onSubmit={handleUpdate}>
+              <div className="flex flex-col mb-3">
+                <label htmlFor="">Upload file</label>
+                <Input type="file" formInput />
+              </div>
+              <div className="flex flex-col mb-3">
+                <label htmlFor="">Enter title</label>
+                <Input
+                  type="text"
+                  formInput
+                  name="title"
+                  value={editUsers.title}
+                  onChange={handleChangeInput}
+                />
+              </div>
+              <div className="flex flex-col mb-3">
+                <label htmlFor="">Enter description</label>
+                <Input
+                  type="text"
+                  formInput
+                  name="description"
+                  value={editUsers.description}
+                  onChange={handleChangeInput}
+                />
+              </div>
+
+              <div className="flex flex-col mb-3">
+                <label htmlFor="">Enter price</label>
+                <Input
+                  type="number"
+                  formInput
+                  name="price"
+                  value={editUsers.price}
+                  onChange={handleChangeInput}
+                />
+              </div>
+
+              <Button type="submit" label={"Edit user"} fullWidth />
+            </form>
+          </div>
+        </Modal>
+      )}
     </>
   );
 };

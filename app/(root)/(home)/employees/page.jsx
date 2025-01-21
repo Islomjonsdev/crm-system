@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Button from "@/components/ui/button";
 import Table from "./Table/Table";
 import { instance } from "@/api";
 import Modal from "@/components/ui/Modal/Modal";
 import { Input } from "@/components/ui/input";
 import { toast } from "react-toastify";
+import { Button } from "@/components/ui/button";
 
 const Employees = () => {
   const [data, setData] = useState([]);
@@ -58,7 +58,7 @@ const Employees = () => {
       <div>
         <div className="flex items-center justify-between mb-[20px]">
           <h1>Employees</h1>
-          <Button label={"Add user"} onClick={() => setAddUser(true)} />
+          <Button onClick={() => setAddUser(true)}>Add User</Button>
         </div>
         <Table data={data} setData={setData} />
       </div>
@@ -99,7 +99,7 @@ const Employees = () => {
                 />
               </div>
 
-              <Button type="submit" label={"Create user"} fullWidth />
+             <Button type="submit">Create user</Button>
             </form>
           </div>
         </Modal>

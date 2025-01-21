@@ -9,6 +9,16 @@ import profileImage from "../../public/images/profileImage.png";
 import rightIcon from "../../public/icons/right.svg";
 import { IoIosArrowUp } from "react-icons/io";
 import { Input } from "../ui/input";
+import { Button } from "../ui/button";
+import { Bell } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [click, setClick] = useState(false);
@@ -29,17 +39,21 @@ const Header = () => {
       </div>
 
       <div className="flex items-center gap-[24px]">
-        <Link
-          href={"/"}
-          className="bg-[#fff] w-[48px] h-[48px] flex items-center justify-center rounded-[14px]"
-        >
-          <Image
-            src={notificationsIcon}
-            alt="notificationsIcon"
-            width={24}
-            height={24}
-          />
-        </Link>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost">
+              <Bell />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <DropdownMenuItem>Billing</DropdownMenuItem>
+            <DropdownMenuItem>Team</DropdownMenuItem>
+            <DropdownMenuItem>Subscription</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
 
         <div
           className="bg-[#FFFFFF] flex items-center gap-[10px] cursor-pointer pt-[9px] pr-[11px] pb-[9px] pl-[14px] rounded-[14px]"

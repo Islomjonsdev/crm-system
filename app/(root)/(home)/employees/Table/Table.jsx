@@ -9,7 +9,7 @@ import { instance } from "@/api";
 import { toast } from "react-toastify";
 import Modal from "@/components/ui/Modal/Modal";
 import { Input } from "@/components/ui/input";
-import Button from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 const Table = ({ data, setData, params }) => {
   const [editModal, setEditModal] = useState(false);
@@ -48,11 +48,11 @@ const Table = ({ data, setData, params }) => {
           )
         );
         setEditModal(false);
-        toast.success("Successfully updated")
+        toast.success("Successfully updated");
       })
       .catch((err) => {
         console.log(err);
-        toast.error("Failed to update")
+        toast.error("Failed to update");
       });
   };
 
@@ -162,8 +162,7 @@ const Table = ({ data, setData, params }) => {
                   onChange={handleChangeInput}
                 />
               </div>
-
-              <Button type="submit" label={"Edit user"} fullWidth />
+              <Button>Edit user</Button>
             </form>
           </div>
         </Modal>

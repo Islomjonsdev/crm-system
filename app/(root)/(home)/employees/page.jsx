@@ -7,6 +7,7 @@ import Modal from "@/components/ui/Modal/Modal";
 import { Input } from "@/components/ui/input";
 import { toast } from "react-toastify";
 import { Button } from "@/components/ui/button";
+import { Plus } from "lucide-react";
 
 const Employees = () => {
   const [data, setData] = useState([]);
@@ -58,7 +59,10 @@ const Employees = () => {
       <div>
         <div className="flex items-center justify-between mb-[20px]">
           <h1>Employees</h1>
-          <Button onClick={() => setAddUser(true)}>Add User</Button>
+          <Button variant="adduserbtn" onClick={() => setAddUser(true)}>
+            <Plus />
+            Add user
+          </Button>
         </div>
         <Table data={data} setData={setData} />
       </div>
@@ -99,7 +103,7 @@ const Employees = () => {
                 />
               </div>
 
-             <Button type="submit">Create user</Button>
+              <Button type="submit">Create user</Button>
             </form>
           </div>
         </Modal>

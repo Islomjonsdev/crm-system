@@ -12,6 +12,7 @@ const buttonVariants = cva(
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        adduserbtn: "bg-[#3F8CFF] font-bold text-[16px] leading-[21.82px] rounded-[14px] text-[#fff]",
         outline:
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-[12px]",
         secondary:

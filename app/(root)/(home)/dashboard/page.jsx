@@ -16,9 +16,19 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div>
-        <div>
+      <div className="flex gap-[30px]">
+        <div className="w-full bg-[#fff] pt-[28px] px-[18px] pb-[16px] rounded-[24px]">
+          <div className="">
+            <h4>Workload</h4>
+          </div>
+
+          <ul>
             
+          </ul>
+        </div>
+
+        <div className="max-w-[339px] w-[100%] bg-[#fff]  pt-[28px] pr-[20px] pb-[28px] pl-[20px] rounded-[24px]">
+            Right
         </div>
       </div>
     </div>

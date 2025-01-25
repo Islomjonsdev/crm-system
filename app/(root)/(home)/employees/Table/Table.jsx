@@ -15,7 +15,7 @@ const Table = ({ data, setData, params }) => {
   const [editModal, setEditModal] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [editUsers, seteditUsers] = useState({});
-  console.log(editUsers);
+  const [filterByTitle, setFilterByTitle] = useState("");
 
   const handleDelete = async (id) => {
     try {
@@ -69,10 +69,21 @@ const Table = ({ data, setData, params }) => {
     }));
   };
 
+  const handleFilterByTitle = data?.filter((items) =>
+    items?.title?.toLowerCase().includes(filterByTitle?.toLowerCase())
+  );
+
   return (
     <>
       {successMessage && <p>{successMessage}</p>}
       <div>
+        <div className="mb-5">
+          <Input
+            onChange={(e) => setFilterByTitle(e.target.value)}
+            placeholder="Filter by name"
+            type="text"
+          />
+        </div>
         <table>
           <thead>
             <tr>
@@ -86,7 +97,7 @@ const Table = ({ data, setData, params }) => {
             </tr>
           </thead>
           <tbody>
-            {data?.map((item, id) => (
+            {handleFilterByTitle?.map((item, id) => (
               <tr key={id}>
                 <td>{item?.id}</td>
                 <td>

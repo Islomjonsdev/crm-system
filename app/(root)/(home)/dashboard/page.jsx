@@ -1,5 +1,6 @@
 import React from "react";
 import { dashboardData } from "@/api/data";
+import DashboardCard from "./DashboardCard/DashboardCard";
 
 const Dashboard = () => {
   return (
@@ -18,17 +19,35 @@ const Dashboard = () => {
 
       <div className="flex gap-[30px]">
         <div className="w-full bg-[#fff] pt-[28px] px-[18px] pb-[16px] rounded-[24px]">
-          <div className="">
-            <h4>Workload</h4>
+          <div className="mb-[22px]">
+            <h4 className="text-[#0A1629] font-bold text-[22px] leading-[30.1px]">
+              Workload
+            </h4>
           </div>
 
-          <ul>
-            
-          </ul>
+          <div className="flex flex-wrap justify-between gap-[16px]">
+            {dashboardData?.map((itemCard, index) => {
+              const {
+                dashboadIcon,
+                dashboardName,
+                dashboardPosition,
+                dashboardDegree,
+              } = itemCard;
+              return (
+                <DashboardCard
+                  key={index}
+                  dashboadIcon={dashboadIcon}
+                  dashboardName={dashboardName}
+                  dashboardPosition={dashboardPosition}
+                  dashboardDegree={dashboardDegree}
+                />
+              );
+            })}
+          </div>
         </div>
 
         <div className="max-w-[339px] w-[100%] bg-[#fff]  pt-[28px] pr-[20px] pb-[28px] pl-[20px] rounded-[24px]">
-            Right
+          Right
         </div>
       </div>
     </div>

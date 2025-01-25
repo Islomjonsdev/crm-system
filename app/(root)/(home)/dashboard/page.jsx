@@ -1,6 +1,7 @@
 import React from "react";
 import { dashboardData } from "@/api/data";
 import DashboardCard from "./DashboardCard/DashboardCard";
+import NearestEvents from "./NearestEvents/NearestEvents";
 
 const Dashboard = () => {
   return (
@@ -47,7 +48,7 @@ const Dashboard = () => {
         </div>
 
         <div className="max-w-[339px] w-[100%] bg-[#fff]  pt-[28px] pr-[20px] pb-[28px] pl-[20px] rounded-[24px]">
-          Right
+          <NearestEvents />
         </div>
       </div>
     </div>

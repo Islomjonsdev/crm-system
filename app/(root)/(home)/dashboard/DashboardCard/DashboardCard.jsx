@@ -20,8 +20,12 @@ const DashboardCard = ({
       <CardTitle className="font-bold text-[16px] leading-[21.82px] mb-[1px]">
         {dashboardName}
       </CardTitle>
-      <CardDescription className="font-normal text-[14px] leading-[21px] text-[#0A1629] mb-[9px]">{dashboardPosition}</CardDescription>
-      <span className="border border-[#7D8592] px-[4.5px] py-[3px] text-[#7D8592] font-semibold text-[12px] leading-[12px] rounded-[4px]">{dashboardDegree}</span>
+      <CardDescription className="font-normal text-[14px] leading-[21px] text-[#0A1629] mb-[9px]">
+        {dashboardPosition}
+      </CardDescription>
+      <span className="border border-[#7D8592] px-[4.5px] py-[3px] text-[#7D8592] font-semibold text-[12px] leading-[12px] rounded-[4px]">
+        {dashboardDegree}
+      </span>
     </Card>
   );
 };

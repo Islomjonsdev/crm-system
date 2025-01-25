@@ -103,7 +103,7 @@ const Employees = () => {
                 />
               </div>
 
-              <Button type="submit">Create user</Button>
+              <Button variant="adduserbtn" type="submit">Create user</Button>
             </form>
           </div>
         </Modal>

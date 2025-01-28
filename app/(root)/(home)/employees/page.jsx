@@ -44,7 +44,6 @@ const Employees = () => {
   const getData = async () => {
     try {
       const res = await instance.get("/work");
-      console.log(res?.data);
       setData(res?.data);
     } catch (err) {
       console.log(err);

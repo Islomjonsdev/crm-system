@@ -1,9 +1,43 @@
-import React from 'react'
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { Plus } from "lucide-react";
+import { useState } from "react";
+import Calendar from "../calendar/page";
+import EmployeesVacations from "./EmployeesVacations/EmployeesVacations";
 
 const Vocations = () => {
+  const [tab, setTab] = useState("Employees’ vacations");
   return (
-    <div>Vocations</div>
-  )
-}
+    <div>
+      <div className="flex items-center justify-between">
+        <h3>Vacations</h3>
+        <div className="flex items-center bg-[#E6EDF5] rounded-[24px] py-[4px] px-[4px]">
+          <button
+            className={tab === "Employees’ vacations" ? "active" : ""}
+            onClick={() => setTab("Employees’ vacations")}
+          >
+            Employees’ vacations
+          </button>
+          <button
+            className={tab === "Calendar" ? "active" : ""}
+            onClick={() => setTab("Calendar")}
+          >
+            Calendar
+          </button>
+        </div>
+        <Button variant="adduserbtn">
+          <Plus />
+          Add Request
+        </Button>
+      </div>
 
-export default Vocations
+      <div>
+        {tab === "Employees’ vacations" && <EmployeesVacations />}
+        {tab === "Calendar" && <Calendar />}
+      </div>
+    </div>
+  );
+};
+
+export default Vocations;
